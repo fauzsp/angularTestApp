@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html ng-app="todoApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="./js/controller.js"></script>
+  </head>
+  <body>
+    <h2>Todo App</h2>
+    <div ng-controller="todoController as todoList">
+      <span> {{todoList.remaining()}} of {{todoList.todos.length}}</span>
+      <a ng-click="todoList.archive()" href="#">Archive</a>
+      <ul class="list-style">
+        <li ng-repeat="todo in todoList.todos">
+          <input ng-model="todo.done" type="checkbox" />
+          <span>{{todo.text}}</span>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input
+          type="text"
+          placeholder="add new todo here"
+          ng-model="todoList.todoText"
+        />
+        <input type="submit" value="Add" />
+      </form>
+    </div>
+  </body>
+</html>
