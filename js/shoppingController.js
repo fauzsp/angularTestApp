@@ -62,7 +62,7 @@ myApp.controller("shoppingController", [
           $scope.user.name = "";
         },
         function errorCallback(response) {
-          alert("data not submitted");
+          alert("data not submitted completely an error occured");
         },
       );
     };
